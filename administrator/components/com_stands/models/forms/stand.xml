@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addrulepath="/administrator/components/com_stands/models/rules">
+    <fieldset name="general">
+        <field
+                name="id"
+                type="hidden"
+        />
+        <field
+                name="number"
+                type="text"
+                label="COM_PRICES_FORM_PRICE_TITLE"
+                description="COM_PRICES_FORM_PRICE_TITLE_DESC"
+                hint="COM_PRICES_FORM_PRICE_TITLE_HINT"
+                message="COM_PRICES_FORM_PRICE_TITLE_MESSAGE"
+                autocomplete="off"
+                required="true"
+                validate="price"
+                maxlength="255"
+                class="span12"
+        />
+    </fieldset>
+</form>

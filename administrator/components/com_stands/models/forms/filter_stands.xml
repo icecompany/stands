@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field
+                name="search"
+                type="text"
+                label="COM_STANDS_FILTER_STANDS"
+                description="COM_STANDS_FILTER_STANDS"
+                hint="COM_STANDS_FILTER_STANDS"
+                autocomplete="off"
+                class="js-stools-search-string"
+        />
+        <field
+                name="catalog"
+                type="Catalog"
+                label="COM_STANDS_FILTER_SELECT_CATALOG"
+                description="COM_STANDS_FILTER_SELECT_CATALOG"
+                onchange="this.form.submit();"
+                >
+            <option value="">COM_STANDS_FILTER_SELECT_CATALOG</option>
+        </field>
+        <field
+                name="pavilion"
+                type="Pavilion"
+                label="COM_STANDS_FILTER_SELECT_PAVILION"
+                description="COM_STANDS_FILTER_SELECT_PAVILION"
+                onchange="this.form.submit();"
+                >
+            <option value="">COM_STANDS_FILTER_SELECT_PAVILION</option>
+        </field>
+        <field
+                name="type"
+                type="Type"
+                label="COM_STANDS_FILTER_SELECT_TYPE"
+                description="COM_STANDS_FILTER_SELECT_TYPE"
+                onchange="this.form.submit();"
+                >
+            <option value="">COM_STANDS_FILTER_SELECT_TYPE</option>
+        </field>
+    </fields>
+    <fields name="list">
+        <field
+                name="fullordering"
+                type="list"
+                label="COM_STANDS_FILTER_SELECT_FULL_ORDERING"
+                description="COM_STANDS_FILTER_SELECT_FULL_ORDERING_DESC"
+                onchange="this.form.submit();"
+                default="title asc"
+        >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="s.number ASC">COM_STANDS_SORTING_NUMBER_ASC</option>
+            <option value="s.number DESC">COM_STANDS_SORTING_NUMBER_DESC</option>
+            <option value="s.square ASC">COM_STANDS_SORTING_SQUARE_ASC</option>
+            <option value="s.square DESC">COM_STANDS_SORTING_SQUARE_DESC</option>
+            <option value="c.title ASC">COM_STANDS_SORTING_CATALOG_ASC</option>
+            <option value="c.title DESC">COM_STANDS_SORTING_CATALOG_DESC</option>
+            <option value="p.title ASC">COM_STANDS_SORTING_PAVILION_ASC</option>
+            <option value="p.title DESC">COM_STANDS_SORTING_PAVILION_DESC</option>
+            <option value="t.title ASC">COM_STANDS_SORTING_TYPE_ASC</option>
+            <option value="t.title DESC">COM_STANDS_SORTING_TYPE_DESC</option>
+            <option value="s.id ASC">COM_STANDS_SORTING_ID_ASC</option>
+            <option value="s.id DESC">COM_STANDS_SORTING_ID_DESC</option>
+        </field>
+        <field
+                name="limit"
+                type="limitbox"
+                class="input-mini"
+                default="0"
+                label="COM_STANDS_FILTER_SELECT_LIMIT"
+                description="COM_STANDS_FILTER_SELECT_LIMIT_DESC"
+                onchange="this.form.submit();"
+        />
+    </fields>
+</form>

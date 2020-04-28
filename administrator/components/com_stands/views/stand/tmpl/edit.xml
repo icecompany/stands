@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-    <layout title="COM_STANDS_MENU_CATALOG">
+    <layout title="COM_STANDS_MENU_STAND">
         <message>
-            <![CDATA[COM_STANDS_MENU_CATALOG_DESC]]>
+            <![CDATA[COM_STANDS_MENU_STAND_DESC]]>
 		</message>
     </layout>
     <fieldset name="request">

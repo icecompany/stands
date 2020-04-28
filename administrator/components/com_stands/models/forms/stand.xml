@@ -8,13 +8,41 @@
         <field
                 name="number"
                 type="text"
-                label="COM_PRICES_FORM_PRICE_TITLE"
-                description="COM_PRICES_FORM_PRICE_TITLE_DESC"
-                hint="COM_PRICES_FORM_PRICE_TITLE_HINT"
-                message="COM_PRICES_FORM_PRICE_TITLE_MESSAGE"
+                label="COM_STANDS_FORM_STAND_NUMBER_LABEL"
+                description="COM_STANDS_FORM_STAND_NUMBER_DESC"
+                hint="COM_STANDS_FORM_STAND_NUMBER_HINT"
+                message="COM_STANDS_FORM_STAND_NUMBER_MESSAGE"
                 autocomplete="off"
                 required="true"
                 maxlength="255"
+                class="span12"
+        />
+        <field
+                name="square"
+                type="text"
+                label="COM_STANDS_FORM_STAND_SQUARE_LABEL"
+                description="COM_STANDS_FORM_STAND_SQUARE_DESC"
+                hint="COM_STANDS_FORM_STAND_SQUARE_HINT"
+                message="COM_STANDS_FORM_STAND_SQUARE_MESSAGE"
+                validate="square"
+                required="true"
+                class="span12"
+                maxlength="10"
+        />
+        <field
+                name="catalogID"
+                type="Catalog"
+                label="COM_STANDS_FORM_STAND_CATALOG_LABEL"
+                description="COM_STANDS_FORM_STAND_CATALOG_DESC"
+                required="true"
+                class="span12"
+        />
+        <field
+                name="pavilionID"
+                type="Pavilion"
+                label="COM_STANDS_FORM_STAND_PAVILION_LABEL"
+                description="COM_STANDS_FORM_STAND_PAVILION_DESC"
+                required="true"
                 class="span12"
         />
     </fieldset>

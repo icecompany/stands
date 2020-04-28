@@ -2,7 +2,7 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\MVC\Model\AdminModel;
 
-class PricesModelStand extends AdminModel {
+class StandsModelStand extends AdminModel {
 
     public function getItem($pk = null)
     {
@@ -14,7 +14,7 @@ class PricesModelStand extends AdminModel {
         return parent::save($data);
     }
 
-    public function getTable($name = 'Stands', $prefix = 'TablePrices', $options = array())
+    public function getTable($name = 'Stands', $prefix = 'TableStands', $options = array())
     {
         return JTable::getInstance($name, $prefix, $options);
     }

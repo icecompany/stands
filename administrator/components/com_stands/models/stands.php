@@ -86,7 +86,7 @@ class StandsModelStands extends ListModel
         $items = parent::getItems();
         $result = array();
         foreach ($items as $item) {
-            $arr = ['items' => []];
+            $arr = [];
             $arr['id'] = $item->id;
             $arr['number'] = $item->number;
             $arr['pavilion'] = $item->pavilion;

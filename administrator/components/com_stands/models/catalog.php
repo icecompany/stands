@@ -2,7 +2,7 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\MVC\Model\AdminModel;
 
-class PricesModelCatalog extends AdminModel {
+class StandsModelCatalog extends AdminModel {
 
     public function getItem($pk = null)
     {

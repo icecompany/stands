@@ -47,6 +47,13 @@ class StandsHelper
     {
         $uri = JUri::getInstance();
         $uri->setVar('refresh', '1');
+        $view = JFactory::getApplication()->input->getString('view');
+        if ($view === 'stands') {
+            $uri->delVar('filter_search');
+            $uri->delVar('filter_type');
+            $uri->delVar('filter_pavilion');
+            $uri->delVar('filter_catalog');
+        }
         $query = $uri->getQuery();
         $client = (!JFactory::getApplication()->isClient('administrator')) ? 'site' : 'administrator';
         return JRoute::link($client, "index.php?{$query}");

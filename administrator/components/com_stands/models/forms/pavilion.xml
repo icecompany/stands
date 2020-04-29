@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addrulepath="/administrator/components/com_stands/models/rules">
+    <fieldset name="general">
+        <field
+                name="id"
+                type="hidden"
+        />
+        <field
+                name="title"
+                type="text"
+                label="COM_STANDS_FORM_TITLE_LABEL"
+                description="COM_STANDS_FORM_CATALOG_PAVILION_DESC"
+                hint="COM_STANDS_FORM_CATALOG_PAVILION_HINT"
+                autocomplete="off"
+                required="true"
+                maxlength="255"
+                class="span12"
+        />
+    </fieldset>
+</form>

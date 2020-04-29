@@ -9,6 +9,7 @@ class StandsHelper
     {
         HTMLHelper::_('sidebar.addEntry', JText::sprintf('COM_STANDS_MENU_STANDS'), 'index.php?option=com_stands&view=stands', $vName === 'stands');
         HTMLHelper::_('sidebar.addEntry', JText::sprintf('COM_STANDS_MENU_CATALOGS'), 'index.php?option=com_stands&view=catalogs', $vName === 'catalogs');
+        HTMLHelper::_('sidebar.addEntry', JText::sprintf('COM_STANDS_MENU_PAVILIONS'), 'index.php?option=com_stands&view=pavilions', $vName === 'pavilions');
     }
 
     /**

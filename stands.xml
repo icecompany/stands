@@ -56,6 +56,7 @@
 			-->
 			<menu view="stands">COM_STANDS_MENU_STANDS</menu>
 			<menu view="catalogs">COM_STANDS_MENU_CATALOGS</menu>
+			<menu view="pavilions">COM_STANDS_MENU_PAVILIONS</menu>
 		</submenu>
 
 		<!-- Core files -->

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field
+                name="search"
+                type="text"
+                label="COM_STANDS_FILTER_PAVILIONS"
+                description="COM_STANDS_FILTER_PAVILIONS"
+                hint="COM_STANDS_FILTER_PAVILIONS"
+                autocomplete="off"
+                class="js-stools-search-string"
+        />
+    </fields>
+    <fields name="list">
+        <field
+                name="fullordering"
+                type="list"
+                label="COM_STANDS_FILTER_SELECT_FULL_ORDERING"
+                description="COM_STANDS_FILTER_SELECT_FULL_ORDERING_DESC"
+                onchange="this.form.submit();"
+                default="title asc"
+        >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="p.title ASC">COM_STANDS_SORTING_PAVILION_ASC</option>
+            <option value="p.title DESC">COM_STANDS_SORTING_PAVILION_DESC</option>
+            <option value="p.id ASC">COM_STANDS_SORTING_ID_ASC</option>
+            <option value="p.id DESC">COM_STANDS_SORTING_ID_DESC</option>
+        </field>
+        <field
+                name="limit"
+                type="limitbox"
+                class="input-mini"
+                default="0"
+                label="COM_STANDS_FILTER_SELECT_LIMIT"
+                description="COM_STANDS_FILTER_SELECT_LIMIT_DESC"
+                onchange="this.form.submit();"
+        />
+    </fields>
+</form>

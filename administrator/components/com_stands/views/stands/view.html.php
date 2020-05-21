@@ -31,6 +31,10 @@ class StandsViewStands extends HtmlView
     {
         JToolBarHelper::title(JText::sprintf('COM_STANDS_MENU_STANDS'), 'cube');
 
+        if (StandsHelper::canDo('core.add'))
+        {
+            JToolbarHelper::editList('stand.add');
+        }
         if (StandsHelper::canDo('core.edit'))
         {
             JToolbarHelper::editList('stand.edit');

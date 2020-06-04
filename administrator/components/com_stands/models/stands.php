@@ -45,6 +45,7 @@ class StandsModelStands extends ListModel
             ->select("t.title as type")
             ->from("`#__mkv_stands` s")
             ->leftJoin("#__mkv_stand_catalogs c on c.id = s.catalogID")
+            ->leftJoin("#__mkv_projects prj on prj.catalogID = c.id")
             ->leftJoin("#__mkv_stand_pavilions p on p.id = s.pavilionID")
             ->leftJoin("#__mkv_stand_square_types t on t.id = s.typeID");
         $search = (!$this->export) ? $this->getState('filter.search') : JFactory::getApplication()->input->getString('search', '');
@@ -61,6 +62,10 @@ class StandsModelStands extends ListModel
                 $text = $db->q("%{$search}%");
                 $query->where("(s.number like {$text})");
             }
+        }
+        $project = PrjHelper::getActiveProject();
+        if (is_numeric($project)) {
+            $query->where("prj.id = {$this->_db->q($project)}");
         }
         $catalog = $this->getState('filter.catalog');
         if (is_numeric($catalog)) {

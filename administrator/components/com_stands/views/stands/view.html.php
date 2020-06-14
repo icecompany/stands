@@ -33,7 +33,7 @@ class StandsViewStands extends HtmlView
 
         if (StandsHelper::canDo('core.add'))
         {
-            JToolbarHelper::editList('stand.add');
+            JToolbarHelper::addNew('stand.add');
         }
         if (StandsHelper::canDo('core.edit'))
         {

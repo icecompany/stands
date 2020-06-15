@@ -18,7 +18,7 @@ class JFormFieldStand extends JFormFieldList
             ->select("p.title as pavilion")
             ->from("`#__mkv_stands` s")
             ->leftJoin("#__mkv_stand_pavilions p on p.id = s.pavilionID")
-            ->order("LENGTH(s.number), s.number");
+            ->order("s.number");
 
         JTable::addIncludePath(JPATH_ADMINISTRATOR . "/components/com_prj/tables");
         $table = JTable::getInstance('Projects', 'TablePrj');

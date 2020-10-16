@@ -49,7 +49,7 @@ class JFormFieldStand extends JFormFieldList
         $items = $model->getItems();
         $ids = array_keys($items);
         $ids = implode(', ', $ids);
-        $query->where("s.id not in ({$ids})");
+        if (!empty($ids)) $query->where("s.id not in ({$ids})");
         if ($contractStandID > 0) $query->orWhere("s.id = {$db->q($standID)}");
 
         $result = $db->setQuery($query)->loadObjectList();

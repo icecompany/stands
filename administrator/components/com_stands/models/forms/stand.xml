@@ -30,6 +30,20 @@
                 maxlength="10"
         />
         <field
+                name="open"
+                type="list"
+                label="COM_STANDS_FORM_STAND_OPEN_LABEL"
+                description="COM_STANDS_FORM_STAND_OPEN_DESC"
+                required="true"
+                class="span12"
+                filter="integer"
+        >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+        </field>
+        <field
                 name="catalogID"
                 type="Catalog"
                 label="COM_STANDS_FORM_STAND_CATALOG_LABEL"

@@ -20,6 +20,9 @@ $listDirn    = $this->escape($this->state->get('list.direction'));
         <?php echo JHtml::_('searchtools.sort', 'COM_STANDS_HEAD_STANDS_PAVILION', 'p.title', $listDirn, $listOrder); ?>
     </th>
     <th>
+        <?php echo JHtml::_('searchtools.sort', 'COM_STANDS_HEAD_STAND_OPEN', 's.open', $listDirn, $listOrder); ?>
+    </th>
+    <th>
         <?php echo JHtml::_('searchtools.sort', 'COM_STANDS_HEAD_STANDS_CATALOG', 'c.title', $listDirn, $listOrder); ?>
     </th>
     <th>

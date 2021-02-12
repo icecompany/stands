@@ -11,15 +11,6 @@
                 class="js-stools-search-string"
         />
         <field
-                name="catalog"
-                type="Catalog"
-                label="COM_STANDS_FILTER_SELECT_CATALOG"
-                description="COM_STANDS_FILTER_SELECT_CATALOG"
-                onchange="this.form.submit();"
-                >
-            <option value="">COM_STANDS_FILTER_SELECT_CATALOG</option>
-        </field>
-        <field
                 name="pavilion"
                 type="Pavilion"
                 label="COM_STANDS_FILTER_SELECT_PAVILION"
@@ -29,13 +20,16 @@
             <option value="">COM_STANDS_FILTER_SELECT_PAVILION</option>
         </field>
         <field
-                name="type"
-                type="Type"
-                label="COM_STANDS_FILTER_SELECT_TYPE"
-                description="COM_STANDS_FILTER_SELECT_TYPE"
+                name="open"
+                type="list"
                 onchange="this.form.submit();"
                 >
-            <option value="">COM_STANDS_FILTER_SELECT_TYPE</option>
+            <option value="">COM_STANDS_FILTER_SELECT_OPEN</option>
+            <option value="-1">COM_STANDS_FILTER_NOT_INFO</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
         </field>
     </fields>
     <fields name="list">

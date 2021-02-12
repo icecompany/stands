@@ -12,10 +12,12 @@ class StandsModelStands extends ListModel
                 's.id',
                 's.number',
                 's.square',
+                's.open',
                 'c.title',
                 'p.title',
                 't.title',
                 'search',
+                'open',
                 'catalog',
                 'pavilion',
                 'type',
@@ -39,7 +41,7 @@ class StandsModelStands extends ListModel
         $limit = (!$this->export) ? $this->getState('list.limit') : 0;
 
         $query
-            ->select("s.id, s.square, s.number")
+            ->select("s.id, s.square, s.number, s.open")
             ->select("c.title as catalog")
             ->select("p.title as pavilion")
             ->select("t.title as type")
@@ -79,6 +81,15 @@ class StandsModelStands extends ListModel
         if (is_numeric($type)) {
             $query->where("s.typeID = {$this->_db->q($type)}");
         }
+        $open = $this->getState('filter.open');
+        if (is_numeric($open)) {
+            if ($open != -1) {
+                $query->where("s.open = {$this->_db->q($open)}");
+            }
+            else {
+                $query->where("s.open is null");
+            }
+        }
 
         $query->order($db->escape($orderCol . ' ' . $orderDirn));
         $this->setState('list.limit', $limit);
@@ -97,6 +108,7 @@ class StandsModelStands extends ListModel
             $arr['pavilion'] = $item->pavilion;
             $arr['type'] = $item->type;
             $arr['catalog'] = $item->catalog;
+            $arr['open'] = $item->open;
             $arr['square'] = JText::sprintf("COM_STANDS_SQUARE_SQM", $item->square);
             $url = JRoute::_("index.php?option={$this->option}&amp;task=stand.edit&amp;id={$item->id}");
             $arr['edit_link'] = JHtml::link($url, $item->number);
@@ -115,6 +127,8 @@ class StandsModelStands extends ListModel
         $this->setState('filter.pavilion', $pavilion);
         $type = $this->getUserStateFromRequest($this->context . '.filter.type', 'filter_type');
         $this->setState('filter.type', $type);
+        $open = $this->getUserStateFromRequest($this->context . '.filter.open', 'filter_open');
+        $this->setState('filter.open', $open);
         parent::populateState($ordering, $direction);
         StandsHelper::check_refresh();
     }
@@ -125,6 +139,7 @@ class StandsModelStands extends ListModel
         $id .= ':' . $this->getState('filter.catalog');
         $id .= ':' . $this->getState('filter.pavilion');
         $id .= ':' . $this->getState('filter.type');
+        $id .= ':' . $this->getState('filter.open');
         return parent::getStoreId($id);
     }
 

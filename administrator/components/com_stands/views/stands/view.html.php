@@ -16,6 +16,8 @@ class StandsViewStands extends HtmlView
         $this->filterForm = $this->get('FilterForm');
         $this->activeFilters = $this->get('ActiveFilters');
 
+        $this->filterForm->addFieldPath(JPATH_ADMINISTRATOR . "/components/com_prices/models/fields");
+
         // Show the toolbar
         $this->toolbar();
 

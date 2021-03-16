@@ -18,6 +18,7 @@ class StandsModelStands extends ListModel
                 't.title',
                 'search',
                 'open',
+                'item',
                 'catalog',
                 'pavilion',
                 'type',
@@ -45,11 +46,13 @@ class StandsModelStands extends ListModel
             ->select("c.title as catalog")
             ->select("p.title as pavilion")
             ->select("t.title as type")
+            ->select("pi.title as item")
             ->from("`#__mkv_stands` s")
             ->leftJoin("#__mkv_stand_catalogs c on c.id = s.catalogID")
             ->leftJoin("#__mkv_projects prj on prj.catalogID = c.id")
             ->leftJoin("#__mkv_stand_pavilions p on p.id = s.pavilionID")
-            ->leftJoin("#__mkv_stand_square_types t on t.id = s.typeID");
+            ->leftJoin("#__mkv_stand_square_types t on t.id = s.typeID")
+            ->leftJoin("#__mkv_price_items pi on pi.id = s.itemID");
         $search = (!$this->export) ? $this->getState('filter.search') : JFactory::getApplication()->input->getString('search', '');
         if (!empty($search)) {
             if (stripos($search, 'id:') !== false) { //Поиск по ID
@@ -90,6 +93,15 @@ class StandsModelStands extends ListModel
                 $query->where("s.open is null");
             }
         }
+        $item = $this->getState('filter.item');
+        if (is_numeric($item)) {
+            if ($item != -1) {
+                $query->where("s.itemID = {$this->_db->q($item)}");
+            }
+            else {
+                $query->where("s.itemID is null");
+            }
+        }
 
         $query->order($db->escape($orderCol . ' ' . $orderDirn));
         $this->setState('list.limit', $limit);
@@ -109,6 +121,7 @@ class StandsModelStands extends ListModel
             $arr['type'] = $item->type;
             $arr['catalog'] = $item->catalog;
             $arr['open'] = $item->open;
+            $arr['item'] = $item->item;
             $arr['square'] = JText::sprintf("COM_STANDS_SQUARE_SQM", $item->square);
             $url = JRoute::_("index.php?option={$this->option}&amp;task=stand.edit&amp;id={$item->id}");
             $arr['edit_link'] = JHtml::link($url, $item->number);
@@ -129,6 +142,8 @@ class StandsModelStands extends ListModel
         $this->setState('filter.type', $type);
         $open = $this->getUserStateFromRequest($this->context . '.filter.open', 'filter_open');
         $this->setState('filter.open', $open);
+        $item = $this->getUserStateFromRequest($this->context . '.filter.item', 'filter_item');
+        $this->setState('filter.item', $item);
         parent::populateState($ordering, $direction);
         StandsHelper::check_refresh();
     }
@@ -140,6 +155,7 @@ class StandsModelStands extends ListModel
         $id .= ':' . $this->getState('filter.pavilion');
         $id .= ':' . $this->getState('filter.type');
         $id .= ':' . $this->getState('filter.open');
+        $id .= ':' . $this->getState('filter.item');
         return parent::getStoreId($id);
     }
 

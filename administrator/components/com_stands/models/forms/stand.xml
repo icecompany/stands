@@ -44,6 +44,15 @@
                 <option value="4">4</option>
         </field>
         <field
+                name="itemID"
+                type="StandItem"
+                label="COM_STANDS_FORM_STAND_PRICE_ITEM_LABEL"
+                description="COM_STANDS_FORM_STAND_PRICE_ITEM_DESC"
+                required="true"
+                class="span12"
+                filter="integer"
+        />
+        <field
                 name="catalogID"
                 type="Catalog"
                 label="COM_STANDS_FORM_STAND_CATALOG_LABEL"

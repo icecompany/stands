@@ -24,6 +24,7 @@ class StandsModelStand extends AdminModel {
         $form = $this->loadForm(
             $this->option.'.stand', 'stand', array('control' => 'jform', 'load_data' => $loadData)
         );
+        $form->addFieldPath(JPATH_ADMINISTRATOR . "/components/com_prices/models/fields");
         if (empty($form))
         {
             return false;

@@ -24,6 +24,9 @@ foreach ($this->items['items'] as $i => $item) :
             <?php echo $item['open'];?>
         </td>
         <td>
+            <?php echo $item['item'];?>
+        </td>
+        <td>
             <?php echo $item['catalog'];?>
         </td>
         <td>

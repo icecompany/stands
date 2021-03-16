@@ -31,6 +31,14 @@
             <option value="3">3</option>
             <option value="4">4</option>
         </field>
+        <field
+                name="item"
+                type="StandItem"
+                onchange="this.form.submit();"
+                >
+            <option value="">COM_STANDS_FILTER_SELECT_PRICE_ITEM</option>
+            <option value="-1">COM_STANDS_FILTER_NOT_INFO</option>
+        </field>
     </fields>
     <fields name="list">
         <field

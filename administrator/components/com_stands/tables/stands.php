@@ -11,6 +11,8 @@ class TableStandsStands extends Table
     var $typeID = null;
     var $square = null;
     var $number = null;
+    var $open = null;
+    var $itemID = null;
     public function __construct(JDatabaseDriver $db)
     {
         parent::__construct('#__mkv_stands', 'id', $db);
